@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="col-md-12 mt-5 d-flex justify-content-center">
+    <form (ngSubmit)="registrar(formulario)" #formulario="ngForm">
+      <div class="form-group">
+        <label for="nombre">Nombre completo</label>
+        <input
+          required
+          type="text"
+          class="form-control"
+          id="nombre"
+          name="nombre"
+          ngModel
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="carnet">Carnet de identidad</label>
+        <input
+          required
+          type="text"
+          class="form-control"
+          id="carnet"
+          placeholder=""
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="telefono">Teléfono</label>
+        <input
+          required
+          type="number"
+          class="form-control"
+          id="telefono"
+          name="telefono"
+          ngModel
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="correo">Correo Electrónico</label>
+        <input
+          required
+          type="email"
+          class="form-control"
+          id="correo"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="factura">Número de factura</label>
+        <input
+          required
+          type="number"
+          class="form-control"
+          id="factura"
+          name="factura"
+          ngModel
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="monto">Monto en bolivianos</label>
+        <input
+          required
+          type="number"
+          class="form-control"
+          id="monto"
+          name="monto"
+          ngModel
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="ciudad">Ciudad</label>
+        <input
+          required
+          type="text"
+          class="form-control"
+          id="ciudad"
+          name="ciudad"
+          ngModel
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+  </div>
+</div>
