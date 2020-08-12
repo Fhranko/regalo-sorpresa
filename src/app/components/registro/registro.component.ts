@@ -15,7 +15,6 @@ export class RegistroComponent implements OnInit {
   ngOnInit(): void {}
 
   registrar(datos: NgForm) {
-    console.table(datos.value.monto);
     
     if (datos.invalid) {
       return;
@@ -34,10 +33,15 @@ export class RegistroComponent implements OnInit {
           .collection('registros')
           .add(data)
           .then((res) => {
-            console.log('datos registrados correctamente');
             Swal.fire({
               type: 'success',
               text: 'Datos registrados correctamente',
+              showCloseButton: true,
+            });
+            let regalo = this.regalar();
+            Swal.fire({
+              type: 'success',
+              text: `FELICIDADES GANASTE ${regalo}`,
               showCloseButton: true,
             });
           })
@@ -58,5 +62,18 @@ export class RegistroComponent implements OnInit {
         });
         return;
       }
+  }
+
+  regalar(){
+    let regalos = [
+      'LLAVERO',
+      'BOLIGRAFO',
+      'GAFAS',
+      'BILLERETA',
+      'MOCHILA'
+    ]
+
+    let regalo = regalos[Math.floor(Math.random() * regalos.length)];
+    return regalo;
   }
 }

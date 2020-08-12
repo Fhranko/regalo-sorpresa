@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  token: string;
   constructor(
     private angularFireAuth: AngularFireAuth,
     private router: Router
@@ -27,6 +28,15 @@ export class LoginComponent implements OnInit {
       .signInWithEmailAndPassword(datos.value.email, datos.value.pass)
       .then((res) => {
         this.router.navigateByUrl('/panel');
+        res.user
+          .getIdToken()
+          .then((ress) => {
+            this.token = ress;
+            localStorage.setItem('token', this.token);
+          })
+          .catch((errr) => {
+            console.log(errr);
+          });
       })
       .catch((err) => {
         Swal.fire({
