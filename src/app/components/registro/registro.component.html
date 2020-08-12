@@ -3,6 +3,12 @@
     <form (ngSubmit)="registrar(formulario)" #formulario="ngForm">
       <div class="form-group">
         <label for="nombre">Nombre completo</label>
+        <br />
+        <span
+          *ngIf="formulario.submitted && formulario.controls['nombre'].errors"
+          class="text-danger"
+          >El Nombre es obligatorio</span
+        >
         <input
           required
           type="text"
@@ -15,17 +21,30 @@
 
       <div class="form-group">
         <label for="carnet">Carnet de identidad</label>
+        <br />
+        <span
+          *ngIf="formulario.submitted && formulario.controls['carnet'].errors"
+          class="text-danger"
+          >El carnet es obligatorio</span
+        >
         <input
           required
           type="text"
           class="form-control"
           id="carnet"
-          placeholder=""
+          name="carnet"
+          ngModel
         />
       </div>
 
       <div class="form-group">
         <label for="telefono">Teléfono</label>
+        <br />
+        <span
+          *ngIf="formulario.submitted && formulario.controls['telefono'].errors"
+          class="text-danger"
+          >El teléfono es obligatorio</span
+        >
         <input
           required
           type="number"
@@ -38,16 +57,30 @@
 
       <div class="form-group">
         <label for="correo">Correo Electrónico</label>
+        <br />
+        <span
+          *ngIf="formulario.submitted && formulario.controls['correo'].errors"
+          class="text-danger"
+          >El correo es obligatorio</span
+        >
         <input
           required
           type="email"
           class="form-control"
           id="correo"
+          name="correo"
+          ngModel
         />
       </div>
 
       <div class="form-group">
         <label for="factura">Número de factura</label>
+        <br />
+        <span
+          *ngIf="formulario.submitted && formulario.controls['factura'].errors"
+          class="text-danger"
+          >La factura es obligatoria</span
+        >
         <input
           required
           type="number"
@@ -60,6 +93,12 @@
 
       <div class="form-group">
         <label for="monto">Monto en bolivianos</label>
+        <br />
+        <span
+          *ngIf="formulario.submitted && formulario.controls['monto'].errors"
+          class="text-danger"
+          >El monto es obligatorio</span
+        >
         <input
           required
           type="number"
@@ -72,6 +111,12 @@
 
       <div class="form-group">
         <label for="ciudad">Ciudad</label>
+        <br />
+        <span
+          *ngIf="formulario.submitted && formulario.controls['ciudad'].errors"
+          class="text-danger"
+          >La ciudad es obligatoria</span
+        >
         <input
           required
           type="text"
