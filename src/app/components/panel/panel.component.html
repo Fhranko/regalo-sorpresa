@@ -1,1 +1,28 @@
-<p>panel works!</p>
+<table class="table table-striped table-dark table-responsive mt-5">
+  <thead>
+    <tr>
+      <th scope="col">Carnet</th>
+      <th scope="col">Ciudad</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Factura</th>
+      <th scope="col">Monto</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Telefono</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr *ngFor="let item of registros">
+      <td>{{item.carnet}}</td>
+      <td>{{item.ciudad}}</td>
+      <td>{{item.correo}}</td>
+      <td>{{item.factura}}</td>
+      <td>{{item.monto}}</td>
+      <td>{{item.nombre}}</td>
+      <td>{{item.telefono}}</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<button class = "btn btn-primary text-center" [routerLink]="['/']" routerLinkActive="router-link-active" >Inicio</button>
