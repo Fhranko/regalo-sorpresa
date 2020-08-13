@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "caja-sorpresa-eb892": {
+      "hosting": {
+        "sorpresa": [
+          "caja-sorpresa-eb892"
+        ]
+      }
+    }
+  }
+}

@@ -5,9 +5,8 @@ import { FormsModule } from "@angular/forms";
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
-
 import { AngularFireAuthModule } from "@angular/fire/auth";
-// import { AngularFireAuth } from "@angular/fire/auth";
+
 
 
 //rutas
