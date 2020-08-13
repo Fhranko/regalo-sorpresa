@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { AuthService } from "../../services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -10,10 +11,11 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  token: string;
+  
   constructor(
     private angularFireAuth: AngularFireAuth,
-    private router: Router
+    private router: Router,
+    private auth: AuthService 
   ) {}
 
   ngOnInit(): void {}
@@ -31,8 +33,8 @@ export class LoginComponent implements OnInit {
         res.user
           .getIdToken()
           .then((ress) => {
-            this.token = ress;
-            localStorage.setItem('token', this.token);
+            localStorage.setItem("token", ress);
+            
           })
           .catch((errr) => {
             console.log(errr);
