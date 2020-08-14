@@ -3,7 +3,6 @@ import { NgForm } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { AuthService } from "../../services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +14,6 @@ export class LoginComponent implements OnInit {
   constructor(
     private angularFireAuth: AngularFireAuth,
     private router: Router,
-    private auth: AuthService 
   ) {}
 
   ngOnInit(): void {}
