@@ -1,16 +1,14 @@
 <div
-  class="regalo d-flex flex-column justify-content-center align-content-center"
+  class="regalo d-flex flex-column justify-content-center align-content-center container"
 >
-  <img
-    class="regalo-imagen img-fluid"
-    src="https://image.freepik.com/vector-gratis/navidad-ano-nuevo-ilustracion-fondo-blanco-caja-regalo-roja_164911-157.jpg"
-    alt="regalo"
-  />
+  <app-slider></app-slider>
+
+  <img class="img-fluid mx-auto m-5" src="assets/img/totto.png" alt="" />
   <button
     [routerLink]="['/registro']"
     routerLinkActive="router-link-active"
-    class="btn btn-primary regalo-button"
+    class="btn btn-primary regalo-button mx-5"
   >
-    Registra tus datos y abre la caja
+    Registra tus datos y reclama tu regalo
   </button>
 </div>

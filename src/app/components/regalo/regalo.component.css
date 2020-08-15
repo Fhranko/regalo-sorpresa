@@ -8,4 +8,10 @@
 
 .regalo-button{
     align-self: center;
+    background-color: #231F20;
+    border:  none;
+}
+
+.regalo-button:hover{
+    background-color: #EF4135;
 }

@@ -1,0 +1,9 @@
+<ngb-carousel>
+  <ng-template ngbSlide *ngFor="let imagen of imagenes">
+    <div class="d-flex justify-content-center">
+      <div class="picsum-img-wrapper d-flex justify-content-center">
+        <img src="{{ imagen.img }}" alt="{{ imagen.nombre }}" width="50%"/>
+      </div>
+    </div>
+  </ng-template>
+</ngb-carousel>

@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireAuthModule } from "@angular/fire/auth";
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 //rutas
@@ -18,6 +18,8 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PanelComponent } from './components/panel/panel.component';
+import { SliderComponent } from './components/slider/slider.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { PanelComponent } from './components/panel/panel.component';
     RegistroComponent,
     HomeComponent,
     LoginComponent,
-    PanelComponent
+    PanelComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { PanelComponent } from './components/panel/panel.component';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
