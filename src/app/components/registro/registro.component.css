@@ -1,0 +1,40 @@
+.formulario {
+  background-color: #ef4135;
+  background-image: linear-gradient(62deg, #ffd520 0%, #ef4135 100%);
+  color: #fff;
+  border-radius: 5px;
+}
+.form-control:focus {
+  border-color: none;
+  box-shadow: none;
+  outline: 0 none;
+}
+
+.button-registro {
+  align-self: center;
+  background-color: #231f20;
+  border: none;
+  border-radius: 50px;
+}
+
+.button-registro:hover {
+  background-color: #ef4135;
+  color: #fff;
+}
+
+.button-registro:focus {
+  background: #ef4135 !important;
+  box-shadow: none !important;
+  outline: none;
+}
+
+.button-registro:active {
+  background: #ef4135 !important;
+  outline: none;
+  box-shadow: none !important;
+}
+
+
+.botton-confirmacion{
+    background-color: red;
+}

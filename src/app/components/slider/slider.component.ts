@@ -27,7 +27,9 @@ export class SliderComponent implements OnInit {
 
   constructor(private _config: NgbCarouselConfig) { 
     _config.interval = 3000;
-    _config.pauseOnHover = false
+    _config.pauseOnHover = false;
+    _config.showNavigationIndicators = false;
+    _config.showNavigationArrows = false;
   }
 
   ngOnInit(): void {

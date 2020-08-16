@@ -1,134 +1,150 @@
-<div class="row min-vh-100">
-  <div class="m-auto p-5">
-    <form (ngSubmit)="registrar(formulario)" #formulario="ngForm">
-      <h4 class="my-5 text-center">Registra tus datos para ganar</h4>
-      <div class="form-group">
-        <span
-          *ngIf="formulario.submitted && formulario.controls['nombre'].errors"
-          class="text-danger"
-          >El Nombre es obligatorio</span
+<div class="container">
+  <div class="row min-vh-100">
+    <div class="col-sm-12 col-md-6 m-auto">
+      
+      <img class="w-100 img-fluid py-3 px-5" src="assets/img/totto.png" alt="logo totto" />
+      <form
+        autocomplete="off"
+        class="formulario py-1 px-5 mb-5"
+        (ngSubmit)="registrar(formulario)"
+        #formulario="ngForm"
+      >
+        <h4 class="my-5 text-center">Registra tus datos para ganar</h4>
+        <div class="form-group">
+          <span
+            *ngIf="formulario.submitted && formulario.controls['nombre'].errors"
+            class="text-white"
+            >El Nombre es obligatorio</span
+          >
+          <input
+            required
+            type="text"
+            class="form-control"
+            id="nombre"
+            name="nombre"
+            ngModel
+            placeholder="Nombre Completo"
+          />
+        </div>
+
+        <div class="form-group">
+          <span
+            *ngIf="formulario.submitted && formulario.controls['carnet'].errors"
+            class="text-white"
+            >El carnet es obligatorio</span
+          >
+          <input
+            required
+            type="number"
+            class="form-control"
+            id="carnet"
+            name="carnet"
+            ngModel
+            placeholder="Carnet"
+          />
+        </div>
+
+        <div class="form-group">
+          <span
+            *ngIf="
+              formulario.submitted && formulario.controls['telefono'].errors
+            "
+            class="text-white"
+            >El teléfono es obligatorio</span
+          >
+          <input
+            required
+            type="number"
+            class="form-control"
+            id="telefono"
+            name="telefono"
+            ngModel
+            placeholder="Teléfono"
+          />
+        </div>
+
+        <div class="form-group">
+          <span
+            *ngIf="formulario.submitted && formulario.controls['correo'].errors"
+            class="text-white"
+            >El correo es obligatorio</span
+          >
+          <input
+            required
+            type="email"
+            class="form-control"
+            id="correo"
+            name="correo"
+            ngModel
+            email
+            placeholder="Correo"
+          />
+        </div>
+
+        <div class="form-group">
+          <span
+            *ngIf="
+              formulario.submitted && formulario.controls['factura'].errors
+            "
+            class="text-white"
+            >La factura es obligatoria</span
+          >
+          <input
+            required
+            type="number"
+            class="form-control"
+            id="factura"
+            name="factura"
+            ngModel
+            placeholder="Factura"
+          />
+        </div>
+
+        <div class="form-group">
+          <span
+            *ngIf="formulario.submitted && formulario.controls['monto'].errors"
+            class="text-white"
+            >El monto es obligatorio</span
+          >
+          <input
+            required
+            type="number"
+            class="form-control"
+            id="monto"
+            name="monto"
+            ngModel
+            placeholder="Monto"
+          />
+        </div>
+
+        <div class="form-group">
+          <span
+            *ngIf="formulario.submitted && formulario.controls['ciudad'].errors"
+            class="text-white"
+            >La ciudad es obligatoria</span
+          >
+
+          <select required name="ciudad" class="form-control" ngModel>
+            <option value="" disabled selected hidden>Ciudad</option>
+            <option value="La Paz">La Paz</option>
+            <option value="Oruro">Oruro</option>
+            <option value="Potosí">Potosí</option>
+            <option value="Cochabamba">Cochabamba</option>
+            <option value="Chuquisaca">Chuquisaca</option>
+            <option value="Tarija">Tarija</option>
+            <option value="Pando">Pando</option>
+            <option value="Beni">Beni</option>
+            <option value="Santa">Santa Cruz</option>
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          class="button-registro btn btn-primary btn-block my-5"
         >
-        <input
-          required
-          type="text"
-          class="form-control"
-          id="nombre"
-          name="nombre"
-          ngModel
-          placeholder="Nombre Completo"
-        />
-      </div>
-
-      <div class="form-group">
-        <span
-          *ngIf="formulario.submitted && formulario.controls['carnet'].errors"
-          class="text-danger"
-          >El carnet es obligatorio</span
-        >
-        <input
-          required
-          type="number"
-          class="form-control"
-          id="carnet"
-          name="carnet"
-          ngModel
-          placeholder="Carnet"
-        />
-      </div>
-
-      <div class="form-group">
-        <span
-          *ngIf="formulario.submitted && formulario.controls['telefono'].errors"
-          class="text-danger"
-          >El teléfono es obligatorio</span
-        >
-        <input
-          required
-          type="number"
-          class="form-control"
-          id="telefono"
-          name="telefono"
-          ngModel
-          placeholder="Teléfono"
-        />
-      </div>
-
-      <div class="form-group">
-        <span
-          *ngIf="formulario.submitted && formulario.controls['correo'].errors"
-          class="text-danger"
-          >El correo es obligatorio</span
-        >
-        <input
-          required
-          type="email"
-          class="form-control"
-          id="correo"
-          name="correo"
-          ngModel
-          email
-          placeholder="Correo"
-        />
-      </div>
-
-      <div class="form-group">
-        <span
-          *ngIf="formulario.submitted && formulario.controls['factura'].errors"
-          class="text-danger"
-          >La factura es obligatoria</span
-        >
-        <input
-          required
-          type="number"
-          class="form-control"
-          id="factura"
-          name="factura"
-          ngModel
-          placeholder="Factura"
-        />
-      </div>
-
-      <div class="form-group">
-        <span
-          *ngIf="formulario.submitted && formulario.controls['monto'].errors"
-          class="text-danger"
-          >El monto es obligatorio</span
-        >
-        <input
-          required
-          type="number"
-          class="form-control"
-          id="monto"
-          name="monto"
-          ngModel
-          placeholder="Monto"
-        />
-      </div>
-
-      <div class="form-group">
-        <span
-          *ngIf="formulario.submitted && formulario.controls['ciudad'].errors"
-          class="text-danger"
-          >La ciudad es obligatoria</span
-        >
-
-        <select required name="ciudad" class="form-control" ngModel>
-          <option value="" disabled selected hidden>Ciudad</option>
-          <option value="La Paz">La Paz</option>
-          <option value="Oruro">Oruro</option>
-          <option value="Potosí">Potosí</option>
-          <option value="Cochabamba">Cochabamba</option>
-          <option value="Chuquisaca">Chuquisaca</option>
-          <option value="Tarija">Tarija</option>
-          <option value="Pando">Pando</option>
-          <option value="Beni">Beni</option>
-          <option value="Santa">Santa Cruz</option>
-        </select>
-      </div>
-
-      <button type="submit" class="btn btn-primary btn-block my-5">
-        Registrar
-      </button>
-    </form>
+          Registrar
+        </button>
+      </form>
+    </div>
   </div>
 </div>

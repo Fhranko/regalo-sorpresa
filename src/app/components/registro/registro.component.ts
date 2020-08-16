@@ -25,10 +25,10 @@ export class RegistroComponent implements OnInit {
       return;
     }
 
-    Swal.fire({
-      type: 'info',
-      text: 'Espere por favor',
-    });
+    // Swal.fire({
+    //   type: 'info',
+    //   text: 'Espere por favor',
+    // });
 
     Swal.showLoading();
 
@@ -41,15 +41,13 @@ export class RegistroComponent implements OnInit {
         .collection('registros')
         .add(data)
         .then((res) => {
-          Swal.fire({
-            type: 'success',
-            text: 'Datos registrados correctamente',
-            showCloseButton: true,
-          });
           let regalo = this.regalar();
           Swal.fire({
-            type: 'success',
-            text: `FELICIDADES GANASTE ${regalo}`,
+            imageUrl: 'assets/img/billetera.png',
+            imageWidth: 200,
+            confirmButtonColor: "#ef4135",
+            titleText:`¡FELICIDADES GANASTE! ${regalo}`, 
+            text: 'Apersonate a una de nuestras oficinas con tu factura',
             showCloseButton: true,
           });
         })
