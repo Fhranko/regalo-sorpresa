@@ -1,0 +1,36 @@
+.formulario-login {
+  border-radius: 5px;
+  background-image: linear-gradient(62deg, #ffd520 0%, #ef4135 100%);
+}
+
+.form-control:focus {
+  border-color: none;
+  box-shadow: none;
+  outline: none;
+  border-color: #ffd520;
+}
+
+
+.button-ingresar {
+  align-self: center;
+  background-color: #231f20;
+  border: none;
+  border-radius: 50px;
+}
+
+.button-ingresar:hover {
+  background-color: #ef4135;
+  color: #fff;
+}
+
+.button-ingresar:focus {
+  background: #ef4135 !important;
+  box-shadow: none !important;
+  outline: none;
+}
+
+.button-ingresar:active {
+  background: #ef4135 !important;
+  outline: none;
+  box-shadow: none !important;
+}
