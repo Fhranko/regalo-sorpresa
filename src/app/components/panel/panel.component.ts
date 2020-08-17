@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-panel',
@@ -8,16 +9,14 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class PanelComponent implements OnInit {
   registros = [];
-  constructor(private angularFireStore: AngularFirestore) {}
+  constructor(private angularFireStore: AngularFirestore, private router: Router) {}
 
   ngOnInit(): void {
-    let valores = this.angularFireStore
-      .collection('registros')
-      .valueChanges()
-      .subscribe((res) => {
-        // console.log(res)
-        this.registros = res;
-        // console.log(this.registros);
-      });
+  
+  }
+
+  logout(){
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('/login');
   }
 }

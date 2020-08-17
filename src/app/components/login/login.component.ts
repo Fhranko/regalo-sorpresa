@@ -22,17 +22,15 @@ export class LoginComponent implements OnInit {
     if (datos.invalid) {
       return;
     }
-
-    console.log(datos.value);
     this.angularFireAuth
       .signInWithEmailAndPassword(datos.value.email, datos.value.pass)
       .then((res) => {
         this.router.navigateByUrl('/panel');
+        console.log(res);
         res.user
           .getIdToken()
           .then((ress) => {
             localStorage.setItem("token", ress);
-            
           })
           .catch((errr) => {
             console.log(errr);

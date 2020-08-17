@@ -4,7 +4,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { firestore } from 'firebase/app';
 import Swal from 'sweetalert2';
-import * as moment from "moment";
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-registro',
@@ -12,11 +12,25 @@ import * as moment from "moment";
   styleUrls: ['./registro.component.css'],
 })
 export class RegistroComponent implements OnInit {
-  constructor(
-    private fire: AngularFirestore,
-    private ngForm: FormsModule,
 
-  ) {}
+  regalos: any[] = [{
+    img: 'assets/img/billetera.png',
+    nombre: 'billetera'
+  },{
+    img: 'assets/img/boligrafo.png',
+    nombre: 'boligrafo'
+  },{
+    img: 'assets/img/friki.png',
+    nombre: 'friki'
+  },{
+    img: 'assets/img/llavero.png',
+    nombre: 'llavero'
+  },{
+    img: 'assets/img/mochila.png',
+    nombre: 'mochila'
+  }]
+
+  constructor(private fire: AngularFirestore, private ngForm: FormsModule) {}
 
   ngOnInit(): void {}
 
@@ -24,29 +38,29 @@ export class RegistroComponent implements OnInit {
     if (datos.invalid) {
       return;
     }
-
-    // Swal.fire({
-    //   type: 'info',
-    //   text: 'Espere por favor',
-    // });
-
     Swal.showLoading();
 
     if (datos.value.monto >= 450) {
       let data = Object.assign({}, datos.value);
-      // data.fecha = firestore.Timestamp.now().toDate();
-      // let fecha = moment(data.fecha).format('DD MM YYYY')
-      // console.log(fecha);
+      data.fecha = moment(firestore.Timestamp.now().toDate()).format(
+        'DD-MM-YYYY'
+      );
+      data.hora = moment(firestore.Timestamp.now().toDate()).format('HH:mm');
+      let regalo = this.regalos[Math.floor(Math.random() * this.regalos.length)];
+      // console.log(regalo)
+      data.regalo = regalo.nombre;
+
+      console.log(data);
+
       this.fire
         .collection('registros')
         .add(data)
         .then((res) => {
-          let regalo = this.regalar();
           Swal.fire({
-            imageUrl: 'assets/img/billetera.png',
+            imageUrl: regalo.img,
             imageWidth: 200,
-            confirmButtonColor: "#ef4135",
-            titleText:`¡FELICIDADES GANASTE! ${regalo}`, 
+            confirmButtonColor: '#ef4135',
+            titleText: `¡FELICIDADES GANASTE! ${data.regalo.toUpperCase()}`,
             text: 'Apersonate a una de nuestras oficinas con tu factura',
             showCloseButton: true,
           });
@@ -68,12 +82,5 @@ export class RegistroComponent implements OnInit {
       });
       return;
     }
-  }
-
-  regalar() {
-    let regalos = ['LLAVERO', 'BOLIGRAFO', 'GAFAS', 'BILLERETA', 'MOCHILA'];
-
-    let regalo = regalos[Math.floor(Math.random() * regalos.length)];
-    return regalo;
   }
 }

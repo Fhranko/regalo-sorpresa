@@ -1,0 +1,50 @@
+.button-home {
+    align-self: center;
+    background-color: #231f20;
+    border: none;
+    border-radius: 50px;
+  }
+  
+  .button-home:hover {
+    background-color: #ef4135;
+    color: #fff;
+  }
+  
+  .button-home:focus {
+    background: #ef4135 !important;
+    box-shadow: none !important;
+    outline: none;
+  }
+  
+  .button-home:active {
+    background: #ef4135 !important;
+    outline: none;
+    box-shadow: none !important;
+  }
+
+  
+  .button-logout {
+    align-self: center;
+    background-color: #ef4135;
+    border: none;
+    border-radius: 50px;
+  }
+  
+  .button-logout:hover {
+    background-color: #231f20;
+    color: #fff;
+  }
+  
+  .button-logout:focus {
+    background: #231f20 !important;
+    box-shadow: none !important;
+    outline: none;
+  }
+  
+  .button-logout:active {
+    background: #231f20 !important;
+    outline: none;
+    box-shadow: none !important;
+  }
+
+  
