@@ -22,6 +22,7 @@ import { PanelComponent } from './components/panel/panel.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { DatatableComponent } from './components/datatable/datatable.component';
 import { DataTablesModule } from 'angular-datatables';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { DataTablesModule } from 'angular-datatables';
     NgbModule,
     DataTablesModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
