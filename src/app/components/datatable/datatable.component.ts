@@ -10,7 +10,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
   styleUrls: ['./datatable.component.css'],
 })
 export class DatatableComponent implements OnDestroy, OnInit {
-  // Must be declared as "any", not as "DataTables.Settings"
   dtOptions: any = {};
   // dtOptions: DataTables.Settings = {};
   dtTrigger = new Subject();
@@ -28,9 +27,7 @@ export class DatatableComponent implements OnDestroy, OnInit {
       language: {
         url: '//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json',
       },
-      // Declare the use of the extension in the dom parameter
       dom: 'Bfrtip',
-      // Configure the buttons
       buttons: [
         'print',
         'excel',

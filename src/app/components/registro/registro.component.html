@@ -1,18 +1,25 @@
 <div class="container">
   <div class="row min-vh-100">
     <div class="col-sm-12 col-md-6 m-auto">
-      
-      <img class="w-100 img-fluid py-3 px-5" src="assets/img/totto.png" alt="logo totto" />
+      <img
+        class="w-100 img-fluid py-3 px-5"
+        src="assets/img/totto.png"
+        alt="logo totto"
+      />
       <form
+        [formGroup]="registroForm"
         autocomplete="off"
         class="formulario py-1 px-5 mb-5"
-        (ngSubmit)="registrar(formulario)"
+        (ngSubmit)="guardarDatos(registroForm.value)"
         #formulario="ngForm"
       >
         <h4 class="my-5 text-center">Registra tus datos para ganar</h4>
         <div class="form-group">
           <span
-            *ngIf="formulario.submitted && formulario.controls['nombre'].errors"
+            *ngIf="
+              registroForm.get('nombre').hasError('required') &&
+              registroForm.get('nombre').touched
+            "
             class="text-white"
             >El Nombre es obligatorio</span
           >
@@ -22,14 +29,17 @@
             class="form-control"
             id="nombre"
             name="nombre"
-            ngModel
             placeholder="Nombre Completo"
+            formControlName="nombre"
           />
         </div>
 
         <div class="form-group">
           <span
-            *ngIf="formulario.submitted && formulario.controls['carnet'].errors"
+            *ngIf="
+              registroForm.get('carnet').hasError('required') &&
+              registroForm.get('carnet').touched
+            "
             class="text-white"
             >El carnet es obligatorio</span
           >
@@ -39,15 +49,16 @@
             class="form-control"
             id="carnet"
             name="carnet"
-            ngModel
             placeholder="Carnet"
+            formControlName="carnet"
           />
         </div>
 
         <div class="form-group">
           <span
             *ngIf="
-              formulario.submitted && formulario.controls['telefono'].errors
+              registroForm.get('telefono').hasError('required') &&
+              registroForm.get('telefono').touched
             "
             class="text-white"
             >El teléfono es obligatorio</span
@@ -58,15 +69,17 @@
             class="form-control"
             id="telefono"
             name="telefono"
-            ngModel
             placeholder="Teléfono"
+            formControlName="telefono"
           />
         </div>
 
         <div class="form-group">
           <span
-            *ngIf="formulario.submitted && formulario.controls['correo'].errors"
-            class="text-white"
+            *ngIf="
+              registroForm.get('correo').hasError('required') &&
+              registroForm.get('correo').touched
+            "
             >El correo es obligatorio</span
           >
           <input
@@ -75,16 +88,17 @@
             class="form-control"
             id="correo"
             name="correo"
-            ngModel
             email
             placeholder="Correo"
+            formControlName="correo"
           />
         </div>
 
         <div class="form-group">
           <span
             *ngIf="
-              formulario.submitted && formulario.controls['factura'].errors
+              registroForm.get('factura').hasError('required') &&
+              registroForm.get('factura').touched
             "
             class="text-white"
             >La factura es obligatoria</span
@@ -95,14 +109,17 @@
             class="form-control"
             id="factura"
             name="factura"
-            ngModel
             placeholder="Factura"
+            formControlName="factura"
           />
         </div>
 
         <div class="form-group">
           <span
-            *ngIf="formulario.submitted && formulario.controls['monto'].errors"
+            *ngIf="
+              registroForm.get('monto').hasError('required') &&
+              registroForm.get('monto').touched
+            "
             class="text-white"
             >El monto es obligatorio</span
           >
@@ -112,19 +129,27 @@
             class="form-control"
             id="monto"
             name="monto"
-            ngModel
-            placeholder="Monto"
+            placeholder="Monto mayor o igual a 450Bs"
+            formControlName="monto"
           />
         </div>
 
         <div class="form-group">
           <span
-            *ngIf="formulario.submitted && formulario.controls['ciudad'].errors"
+            *ngIf="
+              registroForm.get('ciudad').hasError('required') &&
+              registroForm.get('ciudad').touched
+            "
             class="text-white"
             >La ciudad es obligatoria</span
           >
 
-          <select required name="ciudad" class="form-control" ngModel>
+          <select
+            formControlName="ciudad"
+            required
+            name="ciudad"
+            class="form-control"
+          >
             <option value="" disabled selected hidden>Ciudad</option>
             <option value="La Paz">La Paz</option>
             <option value="Oruro">Oruro</option>
@@ -139,6 +164,7 @@
         </div>
 
         <button
+          [disabled]="registroForm.invalid"
           type="submit"
           class="button-registro btn btn-primary btn-block my-5"
         >
