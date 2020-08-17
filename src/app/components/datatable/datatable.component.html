@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <table
+    datatable
+    [dtOptions]="dtOptions"
+    [dtTrigger]="dtTrigger"
+    class="table table-bordered row-border hover"
+  >
+    <thead class="thead-dark">
+      <tr>
+        <th>Nombre</th>
+        <th>Carnet</th>
+        <th>Ciudad</th>
+        <th>Correo</th>
+        <th>Teléfono</th>
+        <th>Factura</th>
+        <th>Monto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let registro of valores">
+        <td>{{ registro.nombre }}</td>
+        <td>{{ registro.carnet }}</td>
+        <td>{{ registro.ciudad }}</td>
+        <td>{{ registro.correo }}</td>
+        <td>{{ registro.telefono }}</td>
+        <td>{{ registro.factura }}</td>
+        <td>{{ registro.monto }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

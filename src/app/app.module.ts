@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from "@angular/fire";
@@ -19,6 +20,8 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PanelComponent } from './components/panel/panel.component';
 import { SliderComponent } from './components/slider/slider.component';
+import { DatatableComponent } from './components/datatable/datatable.component';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -29,7 +32,8 @@ import { SliderComponent } from './components/slider/slider.component';
     HomeComponent,
     LoginComponent,
     PanelComponent,
-    SliderComponent
+    SliderComponent,
+    DatatableComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,9 @@ import { SliderComponent } from './components/slider/slider.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    NgbModule
+    NgbModule,
+    DataTablesModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

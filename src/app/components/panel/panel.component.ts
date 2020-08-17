@@ -17,7 +17,7 @@ export class PanelComponent implements OnInit {
       .subscribe((res) => {
         // console.log(res)
         this.registros = res;
-        console.log(this.registros);
+        // console.log(this.registros);
       });
   }
 }
